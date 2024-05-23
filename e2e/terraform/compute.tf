@@ -20,6 +20,9 @@ resource "aws_instance" "server" {
     ConsulAutoJoin = "auto-join-${local.random_name}"
     User           = data.aws_caller_identity.current.arn
   }
+  tenancy                 = "dedicated"
+  disable_api_termination = true
+  monitoring              = true
 }
 
 resource "aws_instance" "client_ubuntu_jammy_amd64" {
@@ -37,6 +40,9 @@ resource "aws_instance" "client_ubuntu_jammy_amd64" {
     ConsulAutoJoin = "auto-join-${local.random_name}"
     User           = data.aws_caller_identity.current.arn
   }
+  tenancy                 = "dedicated"
+  disable_api_termination = true
+  monitoring              = true
 }
 
 resource "aws_instance" "client_windows_2016_amd64" {
@@ -56,6 +62,9 @@ resource "aws_instance" "client_windows_2016_amd64" {
     ConsulAutoJoin = "auto-join-${local.random_name}"
     User           = data.aws_caller_identity.current.arn
   }
+  tenancy                 = "dedicated"
+  disable_api_termination = true
+  monitoring              = true
 }
 
 resource "aws_instance" "consul_server" {
@@ -72,6 +81,9 @@ resource "aws_instance" "consul_server" {
     ConsulAutoJoin = "auto-join-${local.random_name}"
     User           = data.aws_caller_identity.current.arn
   }
+  tenancy                 = "dedicated"
+  disable_api_termination = true
+  monitoring              = true
 }
 
 
